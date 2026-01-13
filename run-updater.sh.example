@@ -1,0 +1,8 @@
+#!/bin/bash
+#export ROUTER_USERNAME="admin"
+#export ROUTER_PASSWORD="your_actual_password"
+#export ROUTER_URL="https://192.168.1.1"
+#export CLOUDFLARE_API_TOKEN="your_actual_api_token"
+#export DNS_RECORDS=""
+cd /root/get-wan-ip
+uv run main.py
