@@ -1,0 +1,32 @@
+#!/sbin/openrc-run
+
+name="wan-ip-updater"
+description="Monitors router WAN IP and updates Cloudflare DNS records"
+command="/root/.local/bin/uv"
+
+command_args="run main.py"
+directory="/root/get-wan-ip"
+command_user="root"
+command_background="yes"
+output_log="/var/log/wan-ip-updater.log"
+error_log="/var/log/wan-ip-updater-error.log"
+pidfile="/run/wan-ip-updater.pid"
+
+# Load and export environment variables from config file
+if [ -f /etc/wan-ip-updater/wan-ip-updater.conf ]; then
+    set -a
+    . /etc/wan-ip-updater/wan-ip-updater.conf
+    set +a
+fi
+
+# Export all required variables
+export ROUTER_USERNAME ROUTER_PASSWORD ROUTER_URL
+export CLOUDFLARE_API_TOKEN CLOUDFLARE_EMAIL CLOUDFLARE_API_KEY
+export DNS_RECORDS
+export TELEGRAM_BOT_KEY TELEGRAM_CHANNEL_ID TELEGRAM_TOPIC_ID
+export UPDATE_DNS
+
+depend() {
+    need net
+    after firewall
+}
