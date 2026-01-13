@@ -11,3 +11,4 @@ wheels/
 .env
 
 run-updater.sh
+wan_ip_state.json

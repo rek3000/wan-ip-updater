@@ -1,10 +1,12 @@
 [project]
 name = "get-wan-ip"
 version = "0.1.0"
-description = "Add your description here"
+description = "Automatically retrieve router WAN IP address, update Cloudflare DNS records, and send Telegram notifications when IP changes"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "apscheduler>=3.11.2",
     "cloudflare>=4.3.1",
+    "python-telegram-bot>=22.5",
     "requests>=2.32.5",
 ]

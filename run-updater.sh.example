@@ -4,5 +4,13 @@
 #export ROUTER_URL="https://192.168.1.1"
 #export CLOUDFLARE_API_TOKEN="your_actual_api_token"
 #export DNS_RECORDS=""
+
+# Telegram Configuration (Optional)
+#export TELEGRAM_BOT_KEY="your_bot_token_here"
+#export TELEGRAM_CHANNEL_ID="your_channel_id"
+#export TELEGRAM_TOPIC_ID=""  # Optional: For topics within channels
+
+# DNS Update Control (Optional)
+#export UPDATE_DNS="true"  # Set to "false" to disable DNS updates (notifications will still work)
 cd /root/get-wan-ip
 uv run main.py
